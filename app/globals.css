@@ -1,0 +1,120 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-secondary-bg: var(--secondary-bg);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-dark: var(--accent-dark);
+  --color-gold: var(--gold);
+  --color-forest: var(--forest);
+  --color-espresso: var(--espresso);
+  --color-border: var(--border);
+  --color-ring: var(--accent);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
+
+  --shadow-soft: 0 18px 55px -28px var(--shadow-color);
+  --shadow-lift: 0 36px 90px -32px var(--shadow-color);
+
+  --radius-sm: 0.75rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.5rem;
+}
+
+:root {
+  color-scheme: light;
+  --background: #f3eee5;
+  --secondary-bg: #e9e0d3;
+  --card: #faf7f1;
+  --card-foreground: #19110d;
+  --foreground: #19110d;
+  --muted-foreground: #685a50;
+  --accent: #9b652e;
+  --accent-foreground: #fffaf2;
+  --accent-dark: #74471d;
+  --gold: #bd8a4b;
+  --forest: #203c31;
+  --espresso: #110c09;
+  --border: #d4c8b8;
+  --shadow-color: rgba(30, 18, 10, 0.2);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: 'liga' 1, 'calt' 1;
+    min-width: 320px;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  button,
+  a {
+    touch-action: manipulation;
+  }
+  ::selection {
+    background: color-mix(in srgb, var(--accent) 22%, transparent);
+    color: var(--foreground);
+  }
+}
+
+@layer utilities {
+  .hero-glow {
+    background:
+      radial-gradient(circle at 15% 15%, rgba(255, 255, 255, 0.12), transparent 28%),
+      radial-gradient(circle at 82% 58%, rgba(189, 138, 75, 0.14), transparent 32%),
+      linear-gradient(135deg, #2d1f18 0%, #211610 55%, #342219 100%);
+  }
+
+  .botanical-layer {
+    background-image:
+      linear-gradient(rgba(31, 20, 14, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(31, 20, 14, 0.035) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: linear-gradient(to bottom, black, transparent 75%);
+  }
+
+  .gold-rule {
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--gold) 20%,
+      var(--gold) 80%,
+      transparent
+    );
+  }
+
+  .eyebrow {
+    @apply text-[11px] font-medium uppercase tracking-[0.32em];
+  }
+
+  .luxury-panel {
+    border: 1px solid color-mix(in srgb, var(--border) 68%, transparent);
+    background: color-mix(in srgb, var(--card) 88%, transparent);
+    box-shadow: var(--shadow-soft);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
