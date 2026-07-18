@@ -15,7 +15,7 @@ const features = [
     icon: Leaf,
     title: 'Exacting craft',
     description:
-      'Small lots, precise roast profiles and whole leaves preserve nuance from source to cup.',
+      'Small lots. Precise craft. Uncompromised flavour from source to cup.',
   },
   {
     icon: HandHeart,
