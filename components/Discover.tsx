@@ -15,7 +15,7 @@ const cards = [
     image: '/images/specialty-tea.png',
     alt: 'Loose leaf tea and a refined ceramic tea service.',
     title: 'Premium Tea',
-    description: 'Expressive leaves from remarkable gardens, selected at the height of each season.',
+    description: 'Origin-led teas, chosen at the peak of every harvest.',
   },
 ]
 
@@ -49,6 +49,7 @@ export default function Discover() {
               <span className="font-serif text-4xl text-accent">More</span>
               <span className="eyebrow max-w-28 leading-5 text-muted-foreground">Origins under consideration</span>
             </div>
+            
             <a
               href="#expect"
               className="group mt-10 inline-flex min-h-11 items-center gap-3 border-b border-accent/50 text-[12px] font-semibold uppercase tracking-[0.18em] text-accent transition-colors duration-200 hover:text-accent-dark"

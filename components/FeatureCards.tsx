@@ -35,7 +35,7 @@ export default function FeatureCards() {
       <div className="relative mx-auto max-w-[1320px] px-5 sm:px-8 lg:px-12">
         <SectionTitle
           label="The Pure Standard"
-          title={<>Nothing added.<br /><span className="italic text-[#d7aa6c]">Nothing rushed.</span></>}
+          title={<>Pure Ingredients.<br /><span className="italic text-[#d7aa6c]">Exceptional Taste.</span></>}
           align="center"
           className="mx-auto max-w-2xl"
         />

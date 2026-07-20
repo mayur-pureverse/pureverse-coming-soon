@@ -2,10 +2,12 @@ import Hero from '@/components/Hero'
 import Discover from '@/components/Discover'
 import FeatureCards from '@/components/FeatureCards'
 import Footer from '@/components/Footer'
+import LaunchLoader from '@/components/LaunchLoader'
 
 export default function Page() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-background">
+      <LaunchLoader />
       {/* Site-wide botanical texture */}
       <div
         className="botanical-layer pointer-events-none fixed inset-0 z-0"

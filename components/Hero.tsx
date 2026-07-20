@@ -134,7 +134,7 @@ export default function Hero() {
       </div>
       <div className="relative z-10 border-t border-white/10 py-4">
         <div className="mx-auto flex max-w-[1320px] items-center justify-center gap-5 overflow-hidden px-5 text-center sm:gap-10">
-          {['Single origin', 'Whole leaf', 'Small batch', 'Directly sourced'].map((item) => (
+          {['Origin', 'Purity', 'Craft', 'Source'].map((item) => (
             <span key={item} className="eyebrow whitespace-nowrap text-white/40">{item}</span>
           ))}
         </div>
