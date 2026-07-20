@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { after, NextRequest, NextResponse } from 'next/server'
 import { sendWaitlistEmails } from '@/lib/email'
 import { appendWaitlistToSheet } from '@/lib/googleSheets'
 
@@ -92,15 +92,28 @@ export async function POST(request: NextRequest) {
       request.headers.get('origin') ??
       'direct'
 
-    await Promise.all([
-      sendWaitlistEmails(email),
-      appendWaitlistToSheet({
-        timestamp,
-        email,
-        ip,
-        source,
-      }),
-    ])
+    after(async () => {
+      const tasks = await Promise.allSettled([
+        sendWaitlistEmails(email),
+        appendWaitlistToSheet({
+          timestamp,
+          email,
+          ip,
+          source,
+        }),
+      ])
+
+      tasks.forEach((task, index) => {
+        if (task.status === 'rejected') {
+          console.error(
+            index === 0
+              ? 'Background email delivery failed:'
+              : 'Background Google Sheets append failed:',
+            task.reason instanceof Error ? task.reason.message : 'Unknown error',
+          )
+        }
+      })
+    })
 
     return NextResponse.json({ success: true })
   } catch (error) {
