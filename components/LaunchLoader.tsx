@@ -24,9 +24,9 @@ export default function LaunchLoader() {
       }
     }
 
-    const coffee = window.setTimeout(() => setWordIndex(1), 520)
-    const pureCaffeine = window.setTimeout(() => setWordIndex(2), 1040)
-    const finish = window.setTimeout(() => setVisible(false), 1760)
+    const coffee = window.setTimeout(() => setWordIndex(1), 720)
+    const pureCaffeine = window.setTimeout(() => setWordIndex(2), 1440)
+    const finish = window.setTimeout(() => setVisible(false), 2360)
 
     return () => {
       window.clearTimeout(coffee)
@@ -68,7 +68,7 @@ export default function LaunchLoader() {
           <motion.div
             initial={{ scale: 0.82, x: '-15%', y: '12%' }}
             animate={{ scale: 1.08, x: '8%', y: '-6%' }}
-            transition={{ duration: 2.2, ease: [0.65, 0, 0.35, 1] }}
+            transition={{ duration: 2.8, ease: [0.65, 0, 0.35, 1] }}
             className="pointer-events-none absolute -bottom-[35vw] left-1/2 h-[70vw] w-[70vw] max-h-[850px] max-w-[850px] -translate-x-1/2 rounded-full bg-[#d7aa6c]/8 blur-3xl"
             aria-hidden="true"
           />
@@ -126,7 +126,7 @@ export default function LaunchLoader() {
               <motion.div
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
-                transition={{ duration: 1.7, ease: [0.65, 0, 0.35, 1] }}
+                transition={{ duration: 2.3, ease: [0.65, 0, 0.35, 1] }}
                 className="h-full origin-left bg-[#d7aa6c]"
               />
             </div>
