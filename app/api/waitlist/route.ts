@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { sendWaitlistEmails } from '@/lib/email'
-import { getEmailConfig } from '@/lib/env'
 
 export const runtime = 'nodejs'
 export const maxDuration = 30
@@ -35,15 +34,22 @@ function isRateLimited(ip: string): boolean {
 }
 
 function originIsAllowed(request: NextRequest): boolean {
-  const { allowedOrigin } = getEmailConfig()
-  if (!allowedOrigin) return true
-
   const origin = request.headers.get('origin') ?? ''
   const host = request.headers.get('host') ?? ''
-  return (
-    origin === allowedOrigin ||
-    host === allowedOrigin.replace(/^https?:\/\//, '')
-  )
+  const allowedOrigin = process.env.ALLOWED_ORIGIN?.replace(/\/$/, '') ?? ''
+
+  if (!origin) return true
+
+  try {
+    const originHost = new URL(origin).host
+    const configuredHost = allowedOrigin
+      ? new URL(allowedOrigin).host
+      : ''
+
+    return originHost === host || originHost === configuredHost
+  } catch {
+    return false
+  }
 }
 
 export async function POST(request: NextRequest) {
