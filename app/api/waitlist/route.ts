@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { sendWaitlistEmails } from '@/lib/email'
+import { appendWaitlistToSheet } from '@/lib/googleSheets'
 
 export const runtime = 'nodejs'
 export const maxDuration = 30
@@ -85,7 +86,22 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    await sendWaitlistEmails(email)
+    const timestamp = new Date().toISOString()
+    const source =
+      request.headers.get('referer') ??
+      request.headers.get('origin') ??
+      'direct'
+
+    await Promise.all([
+      sendWaitlistEmails(email),
+      appendWaitlistToSheet({
+        timestamp,
+        email,
+        ip,
+        source,
+      }),
+    ])
+
     return NextResponse.json({ success: true })
   } catch (error) {
     console.error(
