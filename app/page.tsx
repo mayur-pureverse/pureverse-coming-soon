@@ -10,7 +10,7 @@ export default function Page() {
     <ClickSpark
       sparkColor="#ffffff"
       sparkSize={10}
-      sparkRadius={15}
+      sparkRadius={25}
       sparkCount={8}
       duration={400}
     >
