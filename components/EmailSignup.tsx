@@ -129,7 +129,7 @@ export default function EmailSignup() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -12, scale: 0.98 }}
                 transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-                className="fixed right-4 top-4 z-[1100] w-[calc(100%-2rem)] max-w-sm overflow-hidden border border-[#d7aa6c]/45 bg-[#f3eee5] text-espresso shadow-[0_24px_70px_rgba(12,8,6,.32)] sm:right-6 sm:top-6"
+                className="fixed right-[max(1rem,env(safe-area-inset-right))] top-[max(1rem,env(safe-area-inset-top))] z-[1100] w-[calc(100%-2rem)] max-w-sm overflow-hidden border border-[#d7aa6c]/45 bg-[#f3eee5] text-espresso shadow-[0_24px_70px_rgba(12,8,6,.32)] sm:right-6 sm:top-6"
                 role="status"
                 aria-live="polite"
               >

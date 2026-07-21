@@ -40,9 +40,9 @@ function Pinterest({ className }: { className?: string }) {
 }
 
 const socials = [
-  { label: 'Instagram', href: '#', Icon: Instagram },
+  { label: 'Instagram', href: '', Icon: Instagram },
   { label: 'Pinterest', href: '#', Icon: Pinterest },
-  { label: 'Email', href: 'mailto:hello@purecaffeine.co', Icon: Mail },
+  { label: 'Email', href: 'mailto:support@pureverse.in', Icon: Mail },
 ]
 
 export default function Footer() {
@@ -65,9 +65,9 @@ export default function Footer() {
             </a>
           </div>
         </div>
-        <div className="flex flex-col gap-8 pt-9 md:flex-row md:items-center md:justify-between">
-          <div>
-            <a href="#top" aria-label="Pure Caffeine home" className="inline-flex min-h-11 items-center">
+        <div className="grid items-center justify-items-center gap-6 pt-9 text-center md:grid-cols-[1fr_auto_1fr] md:gap-8">
+          <div className="justify-self-center md:justify-self-start">
+            <a href="#top" aria-label="Pure Caffeine home" className="inline-flex min-h-11 items-center justify-center">
               <Image
                 src="/images/pure-caffeine-logo-transparent.png"
                 alt="Pure Caffeine"
@@ -76,9 +76,11 @@ export default function Footer() {
                 className="h-auto w-[220px] sm:w-[270px]"
               />
             </a>
-            <p className="mt-2 text-[11px] uppercase tracking-[0.24em] text-white/35">© 2026 · Crafted with intention</p>
           </div>
-          <ul className="flex items-center gap-3">
+          <p className="text-[12px] uppercase tracking-[0.2em] text-white/35 md:justify-self-center">
+            © 2026 · Crafted with intention
+          </p>
+          <ul className="flex items-center gap-3 md:justify-self-end">
           {socials.map(({ label, href, Icon }) => (
             <li key={label}>
               <a

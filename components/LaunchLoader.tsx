@@ -73,14 +73,14 @@ export default function LaunchLoader() {
             aria-hidden="true"
           />
 
-          <div className="relative flex items-center justify-between border-b border-white/10 px-6 py-6 sm:px-10">
+          <div className="relative flex flex-col items-start gap-1.5 border-b border-white/10 px-5 pb-5 pt-[max(1.25rem,env(safe-area-inset-top))] sm:flex-row sm:items-center sm:justify-between sm:px-10 sm:py-6">
             <span className="eyebrow text-[#d7aa6c]">Pure Caffeine</span>
-            <span className="font-serif text-sm italic text-white/45">
-              A considered beginning
+            <span className="font-serif text-xs italic text-white/45 sm:text-sm">
+              Let's Vibe Together
             </span>
           </div>
 
-          <div className="relative flex flex-1 items-center justify-center px-6">
+          <div className="relative flex flex-1 items-center justify-center px-4 sm:px-6">
             <div
               className="absolute h-[min(68vw,520px)] w-[min(68vw,520px)] rounded-full border border-[#d7aa6c]/20"
               aria-hidden="true"
@@ -103,7 +103,7 @@ export default function LaunchLoader() {
                 }}
                 className={`absolute font-serif leading-[0.88] tracking-[-0.06em] ${
                   wordIndex === 2
-                    ? 'whitespace-nowrap text-[clamp(3.2rem,10.5vw,9.5rem)]'
+                    ? 'max-w-[calc(100vw-2.5rem)] text-center text-[clamp(3rem,10.5vw,9.5rem)]'
                     : 'text-[clamp(4.5rem,14vw,12rem)]'
                 }`}
               >
@@ -113,10 +113,11 @@ export default function LaunchLoader() {
             </AnimatePresence>
           </div>
 
-          <div className="relative px-6 pb-8 sm:px-10 sm:pb-10">
-            <div className="mb-4 flex items-center justify-between">
+          <div className="relative px-5 pb-[max(2rem,env(safe-area-inset-bottom))] sm:px-10 sm:pb-10">
+            <div className="mb-4 flex flex-col items-start gap-2 min-[380px]:flex-row min-[380px]:items-center min-[380px]:justify-between">
               <span className="eyebrow text-white/35">
-                Tea · Coffee · Pure Caffeine
+                <span className="sm:hidden">Tea · Coffee · Pure</span>
+                <span className="hidden sm:inline">Tea · Coffee · Pure Caffeine</span>
               </span>
               <span className="font-serif text-sm tabular-nums text-[#d7aa6c]">
                 0{wordIndex + 1} / 03

@@ -23,7 +23,7 @@ export default function Discover() {
   return (
     <section id="discover" className="relative py-24 md:py-36">
       <div className="mx-auto max-w-[1320px] px-5 sm:px-8 lg:px-12">
-        <div className="mb-16 flex items-end justify-between border-b border-border pb-7 md:mb-20">
+        <div className="mb-16 flex flex-col items-start gap-3 border-b border-border pb-7 sm:flex-row sm:items-end sm:justify-between md:mb-20">
           <span className="eyebrow text-accent">The Collection</span>
           <span className="font-serif text-lg italic text-muted-foreground">Two Harvests. One Legacy.</span>
         </div>

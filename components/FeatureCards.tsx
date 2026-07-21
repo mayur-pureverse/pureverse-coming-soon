@@ -40,7 +40,7 @@ export default function FeatureCards() {
           className="mx-auto max-w-2xl"
         />
 
-        <div className="mt-16 grid border-y border-white/12 md:grid-cols-3 md:divide-x md:divide-white/12">
+        <div className="mt-16 grid border-y border-white/12 lg:grid-cols-3 lg:divide-x lg:divide-white/12">
           {features.map((feature, i) => {
             const Icon = feature.icon
             return (
@@ -50,7 +50,7 @@ export default function FeatureCards() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.6, ease: 'easeOut', delay: i * 0.12 }}
-                className="px-5 py-12 text-left md:px-10 md:py-14"
+                className="border-b border-white/12 px-5 py-12 text-left last:border-b-0 sm:px-8 lg:border-b-0 lg:px-10 lg:py-14"
               >
                 <span className="flex h-14 w-14 items-center justify-center border border-gold/35 text-[#d7aa6c]">
                   <Icon className="h-6 w-6" strokeWidth={1.4} aria-hidden="true" />

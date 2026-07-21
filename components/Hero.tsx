@@ -35,17 +35,30 @@ export default function Hero() {
             width={1012}
             height={216}
             priority
-            className="h-auto w-[190px] sm:w-[240px]"
+            className="h-auto w-[145px] min-[380px]:w-[170px] sm:w-[220px] lg:w-[240px]"
           />
         </a>
-        <nav aria-label="Primary navigation" className="hidden items-center gap-8 md:flex">
+        <nav aria-label="Primary navigation" className="hidden items-center gap-7 lg:flex">
           <a href="#discover" className="eyebrow text-white/60 transition-colors hover:text-white">The Collection</a>
           <a href="#expect" className="eyebrow text-white/60 transition-colors hover:text-white">Our Approach</a>
         </nav>
         <a href="#notify" className="eyebrow flex min-h-11 items-center border-b border-gold/70 text-[#e5c18f] transition-colors hover:text-white">
-          Join the list
+          <span className="sm:hidden">Join</span>
+          <span className="hidden sm:inline">Join the list</span>
         </a>
       </motion.header>
+
+      <nav
+        aria-label="Mobile navigation"
+        className="relative z-20 mx-auto flex max-w-[1320px] items-center gap-7 border-b border-white/10 px-5 lg:hidden"
+      >
+        <a href="#discover" className="eyebrow flex min-h-11 items-center text-white/55 transition-colors hover:text-white">
+          Collection
+        </a>
+        <a href="#expect" className="eyebrow flex min-h-11 items-center text-white/55 transition-colors hover:text-white">
+          Our approach
+        </a>
+      </nav>
 
       <div className="relative z-10 mx-auto grid max-w-[1320px] items-center gap-14 px-5 py-14 sm:px-8 md:py-20 lg:min-h-[calc(100dvh-94px)] lg:grid-cols-[1.02fr_0.98fr] lg:px-12 lg:py-16">
         <div className="max-w-2xl">
@@ -64,7 +77,7 @@ export default function Hero() {
             variants={fadeUp}
             initial="hidden"
             animate="show"
-            className="mt-7 font-serif text-[clamp(3.4rem,7vw,7.3rem)] leading-[0.89] tracking-[-0.035em] text-balance text-white"
+            className="mt-7 font-serif text-[clamp(2.9rem,14vw,7.3rem)] leading-[0.89] tracking-[-0.035em] text-balance text-white"
           >
             Purity Meets,
             <br /><span className="italic text-[#d8aa6a]">Caffeine.</span>
@@ -107,7 +120,7 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
           className="relative mx-auto w-full max-w-[560px] lg:justify-self-end"
         >
-          <div className="absolute -inset-3 translate-x-5 translate-y-5 border border-gold/25" aria-hidden="true" />
+          <div className="absolute -inset-2 translate-x-2 translate-y-3 border border-gold/25 sm:-inset-3 sm:translate-x-5 sm:translate-y-5" aria-hidden="true" />
           <div className="relative aspect-[4/5] overflow-hidden bg-[#221710] shadow-[0_40px_100px_rgba(0,0,0,.48)]">
             <Image
               src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1400&q=90"
@@ -121,7 +134,7 @@ export default function Hero() {
             <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-6 md:p-8">
               <div>
                 <p className="eyebrow text-[#d8aa6a]">Pure Caffeine</p>
-                <p className="mt-2 font-serif text-2xl text-white">Let's Vibe Together</p>
+                <p className="mt-2 pr-3 font-serif text-xl text-white sm:text-2xl">Let&apos;s Vibe Together</p>
               </div>
               <ArrowDownRight className="h-7 w-7 text-white/70" strokeWidth={1.2} aria-hidden="true" />
             </div>
@@ -133,7 +146,7 @@ export default function Hero() {
         </motion.div>
       </div>
       <div className="relative z-10 border-t border-white/10 py-4">
-        <div className="mx-auto flex max-w-[1320px] items-center justify-center gap-5 overflow-hidden px-5 text-center sm:gap-10">
+        <div className="mx-auto flex max-w-[1320px] flex-wrap items-center justify-center gap-x-5 gap-y-2 px-5 text-center sm:gap-x-10">
           {['Origin', 'Purity', 'Craft', 'Source'].map((item) => (
             <span key={item} className="eyebrow whitespace-nowrap text-white/40">{item}</span>
           ))}
