@@ -26,7 +26,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: -12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: 'easeOut' }}
-        className="relative z-20 mx-auto flex max-w-[1320px] items-center justify-between border-b border-white/10 px-5 py-6 sm:px-8 lg:px-12"
+        className="relative z-20 mx-auto flex max-w-[1320px] items-center justify-between border-b border-white/10 px-5 py-3 sm:px-8 sm:py-5 lg:px-12 lg:py-6"
       >
         <a href="#top" aria-label="Pure Caffeine home" className="flex min-h-11 items-center">
           <Image
@@ -50,7 +50,7 @@ export default function Hero() {
 
       <nav
         aria-label="Mobile navigation"
-        className="relative z-20 mx-auto flex max-w-[1320px] items-center gap-7 border-b border-white/10 px-5 lg:hidden"
+        className="relative z-20 mx-auto flex max-w-[1320px] items-center justify-center gap-8 border-b border-white/10 px-4 lg:hidden"
       >
         <a href="#discover" className="eyebrow flex min-h-11 items-center text-white/55 transition-colors hover:text-white">
           Collection

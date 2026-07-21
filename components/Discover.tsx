@@ -23,7 +23,7 @@ export default function Discover() {
   return (
     <section id="discover" className="relative py-24 md:py-36">
       <div className="mx-auto max-w-[1320px] px-5 sm:px-8 lg:px-12">
-        <div className="mb-16 flex flex-col items-start gap-3 border-b border-border pb-7 sm:flex-row sm:items-end sm:justify-between md:mb-20">
+        <div className="mb-16 flex flex-col items-center gap-3 border-b border-border pb-7 text-center sm:flex-row sm:items-end sm:justify-between sm:text-left md:mb-20">
           <span className="eyebrow text-accent">The Collection</span>
           <span className="font-serif text-lg italic text-muted-foreground">Two Harvests. One Legacy.</span>
         </div>
@@ -63,9 +63,9 @@ export default function Discover() {
           </motion.div>
 
           {/* Right */}
-          <div className="-mx-5 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-4 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0">
+          <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 sm:gap-5">
             {cards.map((card, i) => (
-              <div key={card.title} className="snap-start">
+              <div key={card.title}>
                 <Card index={i} {...card} />
               </div>
             ))}

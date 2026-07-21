@@ -19,14 +19,14 @@ export default function Card({ image, alt, title, description, index = 0 }: Card
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.6, ease: 'easeOut', delay: index * 0.1 }}
       whileHover={{ y: -5 }}
-      className="group flex min-w-[82vw] flex-col border border-border bg-card shadow-soft transition-shadow duration-300 hover:shadow-lift sm:min-w-0"
+      className="group flex min-w-0 flex-col border border-border bg-card shadow-soft transition-shadow duration-300 hover:shadow-lift"
     >
-      <div className="relative aspect-[4/5] w-full overflow-hidden bg-secondary-bg">
+      <div className="relative aspect-[2/3] w-full overflow-hidden bg-secondary-bg sm:aspect-[4/5]">
         <Image
           src={image || '/placeholder.svg'}
           alt={alt}
           fill
-          sizes="(max-width: 768px) 80vw, 45vw"
+          sizes="(max-width: 639px) calc(100vw - 2.5rem), (max-width: 1024px) 50vw, 36vw"
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035]"
         />
       </div>
