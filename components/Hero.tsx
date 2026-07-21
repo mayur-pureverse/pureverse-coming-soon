@@ -1,7 +1,13 @@
 'use client'
 
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import {
+  motion,
+  useMotionValue,
+  useReducedMotion,
+  useSpring,
+} from 'framer-motion'
+import type { MouseEvent } from 'react'
 import { ArrowDownRight } from 'lucide-react'
 import EmailSignup from './EmailSignup'
 
@@ -15,6 +21,27 @@ const fadeUp = {
 }
 
 export default function Hero() {
+  const prefersReducedMotion = useReducedMotion()
+  const rotateXValue = useMotionValue(0)
+  const rotateYValue = useMotionValue(0)
+  const rotateX = useSpring(rotateXValue, { stiffness: 180, damping: 22 })
+  const rotateY = useSpring(rotateYValue, { stiffness: 180, damping: 22 })
+
+  function handleImageMove(event: MouseEvent<HTMLDivElement>) {
+    if (prefersReducedMotion) return
+    const bounds = event.currentTarget.getBoundingClientRect()
+    const x = (event.clientX - bounds.left) / bounds.width
+    const y = (event.clientY - bounds.top) / bounds.height
+
+    rotateYValue.set((x - 0.5) * 5)
+    rotateXValue.set((0.5 - y) * 5)
+  }
+
+  function resetImagePosition() {
+    rotateXValue.set(0)
+    rotateYValue.set(0)
+  }
+
   return (
     <section
       id="top"
@@ -118,17 +145,24 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-          className="relative mx-auto w-full max-w-[560px] lg:justify-self-end"
+          className="relative mx-auto w-full max-w-[520px] lg:justify-self-end"
         >
           <div className="absolute -inset-2 translate-x-2 translate-y-3 border border-gold/25 sm:-inset-3 sm:translate-x-5 sm:translate-y-5" aria-hidden="true" />
-          <div className="relative aspect-[4/5] overflow-hidden bg-[#221710] shadow-[0_40px_100px_rgba(0,0,0,.48)]">
+          <motion.div
+            onMouseMove={handleImageMove}
+            onMouseLeave={resetImagePosition}
+            whileHover={prefersReducedMotion ? undefined : { scale: 1.012 }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
+            style={{ rotateX, rotateY, transformPerspective: 1200 }}
+            className="relative aspect-[2/3] overflow-hidden rounded-[5px] bg-[#221710] shadow-[0_40px_100px_rgba(0,0,0,.48)] will-change-transform"
+          >
             <Image
-              src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1400&q=90"
-              alt="Artisan coffee being poured into a ceramic cup."
+              src="/images/hero.png"
+              alt="A ceramic coffee cup in a warm, refined interior beneath a framed Coming Soon artwork."
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover opacity-90"
+              className="object-contain opacity-90"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10" />
             <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-6 md:p-8">
@@ -138,11 +172,7 @@ export default function Hero() {
               </div>
               <ArrowDownRight className="h-7 w-7 text-white/70" strokeWidth={1.2} aria-hidden="true" />
             </div>
-          </div>
-          <div className="absolute -left-5 top-8 hidden bg-[#f3eee5] px-4 py-3 text-espresso shadow-lift sm:block">
-            <p className="eyebrow">We are Launching</p>
-            <p className="mt-1 font-serif text-lg italic">Something Special</p>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
       <div className="relative z-10 border-t border-white/10 py-4">
